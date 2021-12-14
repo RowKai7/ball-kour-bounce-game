@@ -122,20 +122,20 @@ class Game {
     /** @param {KeyboardState} kb */
     constructor(kb) {
         this.kb = kb;
-        this.speed = 200;
+        this.speed = 10;
         this.maxSpeed = 50;
         this.accelerationRate = 5;
-        this.accelerationInterval = 0;
+        this.accelerationInterval = 50;
         this.timeSinceLastAcceleration = 0;
 
         this.score = 0;
-        this.scoreX = canvas.width - 200;
+        this.scoreX = canvas.width - 400;
         this.scoreY = 95;
 
         this.wireUpListeners();
 
         this.bgImage = new Image();
-        this.bgImage.src = "/images/waves_glow.png";
+        this.bgImage.src = "/images/653166.jpg";
 
         // w / 600 = 2048 / 1152
 
@@ -216,12 +216,12 @@ class Game {
             this.imageHeight
         );
 
-        ctx.fillStyle = "hsla(${this.color}, 100%, 50%, 0.2)";
+        ctx.fillStyle = "hsla( 0, 0%, 50%, 0.2)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.restore();
 
         ctx.save();
-        ctx.fillStyle = "blue";
+        ctx.fillStyle = "lime";
         ctx.strokeStyle = "purple";
         ctx.font = "90px fantasy";
 
@@ -298,7 +298,7 @@ class SafePlatform {
     constructor(g) {
         this.game = g;
         this.width = 300;
-        this.height = 32;
+        this.height = 20;
 
         this.x = 0;
         this.y = canvas.height - this.height * 1.5;
@@ -317,7 +317,7 @@ class SafePlatform {
 
     render() {
         ctx.save();
-        ctx.fillStyle = "hsla(300, 100%, 50%, 1)";
+        ctx.fillStyle = "hsla(350, 100%, 50%, 1)";
         ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.restore();
     }
@@ -329,11 +329,11 @@ class ScorePlatform {
      */
     constructor(g) {
         this.game = g;
-        this.width = 15;
+        this.width = 20;
         this.height = canvas.height;
 
         this.x = 0;
-        this.y = canvas.height - 200;
+        this.y = canvas.height - 267;
 
         this.isVisible = true;
 
@@ -352,7 +352,7 @@ class ScorePlatform {
 
     render() {
         ctx.save();
-        ctx.fillStyle = "hsla(200, 100%, 50%, 1)";
+        ctx.fillStyle = "hsla(247, 100%, 50%, 1)";
         ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.restore();
     }
@@ -429,3 +429,5 @@ function gameLoop(timestamp) {
 }
 
 requestAnimationFrame(gameLoop);
+
+
