@@ -370,6 +370,7 @@ class PlatformManager {
 
         while (furthestX < canvas.width * 2) {
             let spacer = Math.floor(Math.random() * 168 + 32);
+            let spacerY = Math.floor(Math.random() * 250 + 300);
 
             let nextPlatformType = Math.random();
 
@@ -382,6 +383,7 @@ class PlatformManager {
             }
 
             p.x = furthestX + spacer;
+            p.y = spacerY
             this.platforms.push(p);
             furthestX += spacer + p.width;
         }
